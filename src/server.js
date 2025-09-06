@@ -3,7 +3,16 @@ import http from 'node:http';
 
 //criar servidor
 const server = http.createServer((req, res) => {
-  res.end('Hello World!');
+
+  //definir as constantes
+  const { url, method } = req;
+
+  //definir as rotas
+  if (url === `/users` && method === `GET`) return res.end(`Listagem de usuários`);
+  if (url === `/users` && method === `POST`) return res.end(`Criação de usuário`);
+
+  //caso não encontre a rota
+  res.end(`Erro ao encontrar rota!`);
 });
 
 //escutar porta
