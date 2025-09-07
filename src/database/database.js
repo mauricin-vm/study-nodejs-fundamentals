@@ -25,8 +25,10 @@ export class Database {
   };
 
   //função para selecionar dados do banco de dados
-  select(table) {
-    return this.#database[table] ?? [];
+  select(table, search) {
+    let data = this.#database[table] ?? [];
+    if (search) data = data.filter(row => Object.entries(search).some(([key, value]) => row[key].toLowerCase().includes(value.toLowerCase())));
+    return data;
   };
 
   //função para inserir dados no banco de dados
