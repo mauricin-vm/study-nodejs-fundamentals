@@ -1,0 +1,41 @@
+title,description
+Implementar Autenticação,Desenvolver sistema de autenticação usando JWT e bcrypt
+Criar Dashboard Analytics,Desenvolver dashboard com gráficos de métricas principais
+Otimizar Performance Backend,Identificar e corrigir gargalos de performance no servidor
+Setup CI/CD Pipeline,Configurar pipeline de integração e deploy contínuo
+Refatorar Módulo de Usuários,Melhorar estrutura e adicionar novos recursos ao módulo
+Implementar Cache Redis,Adicionar cache com Redis para melhorar performance
+Desenvolver API de Relatórios,Criar endpoints para geração de relatórios em PDF
+Migrar Banco de Dados,Planejar e executar migração para PostgreSQL
+Implementar Websockets,Adicionar comunicação em tempo real com Socket.io
+Criar Sistema de Logs,Implementar sistema centralizado de logs com ELK Stack
+Desenvolver Microserviço de Email,Criar serviço dedicado para envio de emails
+Implementar Rate Limiting,Adicionar proteção contra abusos na API
+Setup Monitoramento,Configurar ferramentas de monitoramento e alertas
+Criar Documentação API,Documentar endpoints usando Swagger/OpenAPI
+Implementar Testes E2E,Desenvolver suite de testes end-to-end com Cypress
+Otimizar Queries,Melhorar performance das consultas ao banco de dados
+Implementar Search Engine,Adicionar busca full-text com Elasticsearch
+Desenvolver Chat Bot,Criar chatbot para suporte ao cliente
+Criar Sistema de Backup,Implementar rotina automatizada de backups
+Setup Kubernetes,Configurar cluster Kubernetes para deploy
+Implementar GraphQL,Adicionar camada GraphQL à API REST existente
+Desenvolver PWA,Transformar aplicação web em Progressive Web App
+Criar Sistema de Notificações,Implementar notificações push e email
+Otimizar Assets,Melhorar performance de imagens e assets estáticos
+Implementar SSO,Adicionar autenticação via Single Sign-On
+Desenvolver API Gateway,Criar gateway para gerenciamento de APIs
+Criar Sistema de Permissões,Implementar RBAC (Role-Based Access Control)
+Implementar Internacionalização,Adicionar suporte a múltiplos idiomas
+Desenvolver Feature Flags,Criar sistema de feature toggles
+Setup Observability,Configurar ferramentas de observabilidade
+Implementar OAuth,Adicionar autenticação via provedores OAuth
+Criar Sistema de Auditoria,Implementar logs de auditoria de ações
+Desenvolver Webhooks,Criar sistema de webhooks para integrações
+Implementar Rate Limiting,Adicionar limites de requisições por usuário
+Criar Sistema de Fila,Implementar processamento assíncrono com filas
+Otimizar SEO,Melhorar aspectos de SEO da aplicação
+Implementar 2FA,Adicionar autenticação em dois fatores
+Desenvolver API de Métricas,Criar endpoints para métricas de negócio
+Criar Sistema de Cache,Implementar cache distribuído
+Setup Load Balancer,Configurar balanceamento de carga

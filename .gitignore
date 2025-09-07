@@ -1,0 +1,5 @@
+# diretório de node_modules
+node_modules/
+
+# arquivo de banco de dados
+src/database/db.json
