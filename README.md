@@ -1,83 +1,138 @@
 # Node.js Fundamentals Study
 
-This project is a RESTful API implementation using pure Node.js (no frameworks), developed to study and understand Node.js fundamentals.
+This project is a Node.js application that implements a RESTful API for task and user management, demonstrating fundamental Node.js concepts such as streams, native modules, and file handling.
 
-## 🚀 Features
+## 🚀 Technologies
 
-- Complete user CRUD operations
-- Custom routing system
-- JSON processing middleware
-- In-memory database with file persistence
-- Query params support for user search
-- Streams for data manipulation
+- Node.js
+- CSV Parse (for data import)
+- Node.js native modules (http, fs, crypto)
 
-## 📁 Project Structure
+## 📋 Features
+
+### Task Management
+
+- **List Tasks**: GET `/tasks`
+  - Supports filtering by title/description via `search` query parameter
+  - Returns all registered tasks
+
+- **Create Task**: POST `/tasks`
+  - Required fields: title, description
+  - Automatically generates unique ID
+  - Records creation and update dates
+
+- **Update Task**: PUT `/tasks/:id`
+  - Allows updating title and/or description
+  - Automatically updates modification date
+
+- **Toggle Task Completion**: PATCH `/tasks/:id`
+  - Toggles task completion status
+  - Updates modification date
+
+- **Delete Task**: DELETE `/tasks/:id`
+  - Removes the task from the system
+
+### User Management
+
+- **List Users**: GET `/users`
+  - Supports filtering by name/email via `search` query parameter
+  - Returns all registered users
+
+- **Create User**: POST `/users`
+  - Required fields: name, email
+  - Automatically generates unique ID
+
+- **Update User**: PUT `/users/:id`
+  - Allows updating name and/or email
+
+- **Delete User**: DELETE `/users/:id`
+  - Removes the user from the system
+
+### CSV Task Import
+
+The project includes functionality for bulk task import from a CSV file.
+
+- Expected CSV format:
+  - First line: header (title,description)
+  - Following lines: task data
+- Stream processing for efficiency
+- Artificial 2-second delay between imports for demonstration
+
+## 🛠️ Project Structure
 
 ```
 src/
-├── database/         # Database implementation
-│   ├── database.js   # Database class
-│   └── db.json      # Persistence file
+├── database/         # Persistence layer
+│   ├── database.js   # Database manipulation class
+│   └── db.json      # Storage file
 ├── middleware/
-│   └── json.js      # JSON processing middleware
+│   └── json.js      # JSON parsing middleware
 ├── routes/
-│   └── index.js     # Application routes definition
+│   └── index.js     # Route definitions
 ├── streams/
-│   └── index.js     # Streams implementation
+│   ├── import-tasks.js  # CSV import script
+│   └── tasks.csv       # Example file
 ├── utils/
 │   └── index.js     # Utility functions
 └── server.js        # Main server file
 ```
 
-## 🛠️ Technologies Used
+## 🚦 How to Run
 
-- Node.js
-- Native modules:
-  - http
-  - crypto
-  - fs
-  - streams
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## 🚦 API Routes
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   The server will start on port 3333.
 
-### Users
+3. To import tasks from CSV file:
+   ```bash
+   npm run import
+   ```
 
-- `GET /users` - List all users
-  - Query params: `search` (search by name or email)
-- `POST /users` - Create a new user
-  - Body: `{ "name": "string", "email": "string" }`
-- `PUT /users/:id` - Update a user
-  - Body: `{ "name": "string", "email": "string" }`
-- `DELETE /users/:id` - Remove a user
+## 📝 Implementation Notes
 
-## ⚙️ How to Run
+- Uses only Node.js native modules for HTTP server
+- Implements custom routing system with query parameter support
+- JSON file persistence (db.json)
+- Stream processing for efficient data import
+- Proper error handling and validations
+- Standardized HTTP responses with appropriate status codes
 
-1. Clone the repository:
+## 🔍 Usage Examples
+
+### Create a New Task
+
 ```bash
-git clone https://github.com/mauricin-vm/study-nodejs-fundamentals.git
+curl -X POST http://localhost:3333/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title": "New Task", "description": "Task description"}'
 ```
 
-2. Navigate to project folder:
+### List Tasks with Filter
+
 ```bash
-cd study-nodejs-fundamentals
+curl "http://localhost:3333/tasks?search=project"
 ```
 
-3. Run the server in development mode:
+### Toggle Task Completion
+
 ```bash
-npm run dev
+curl -X PATCH http://localhost:3333/tasks/:id
 ```
 
-The server will be running at `http://localhost:3333`
+## 📚 Demonstrated Learning Concepts
 
-## 🔍 Implemented Features
-
-- Native HTTP server without frameworks
-- Routing system with URL parameters support
-- Automatic JSON processing middleware
-- In-memory database with JSON file persistence
-- Stream implementation for data processing
-- Query parameters handling for search filters
-
-## 📝 License
-
-This project is under the ISC license.
+- Node.js native module handling
+- HTTP server implementation without frameworks
+- Stream processing
+- File handling
+- CSV parsing
+- Route management
+- Middleware pattern
+- Asynchronous request handling
