@@ -1,11 +1,15 @@
 //importar bibliotecas e funções
 import http from 'node:http';
+import json from './middleware/json.js';
 
 //criar servidor
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
 
   //definir as constantes
   const { url, method } = req;
+
+  //definir o middleware
+  await json(req, res, next);
 
   //definir as rotas
   if (url === `/users` && method === `GET`) return res.end(`Listagem de usuários`);
