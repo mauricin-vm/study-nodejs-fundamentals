@@ -8,6 +8,5 @@ const json = async (req, res, next) => {
     req.body = null;
   };
   res.setHeader('Content-Type', 'application/json');
-  next();
 };
 export default json;
