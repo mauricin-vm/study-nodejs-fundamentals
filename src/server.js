@@ -1,10 +1,7 @@
 //importar bibliotecas e funções
 import http from 'node:http';
 import json from './middleware/json.js';
-import { Database } from './database/database.js';
-
-//instância do banco de dados
-const database = new Database();
+import { routes } from './routes/index.js';
 
 //criar servidor
 const server = http.createServer(async (req, res) => {
@@ -16,15 +13,8 @@ const server = http.createServer(async (req, res) => {
   await json(req, res);
 
   //definir as rotas
-  if (url === `/users` && method === `GET`) {
-    const users = database.select(`users`);
-    return res.end(JSON.stringify(users));
-  };
-  if (url === `/users` && method === `POST`) {
-    const { name, email } = req.body;
-    database.insert(`users`, { name, email });
-    return res.writeHead(201).end();
-  };
+  const route = routes.find(route => route.method === method && route.path === url);
+  if (route) return route.handler(req, res);
 
   //caso não encontre a rota
   res.end(`Erro ao encontrar rota!`);
